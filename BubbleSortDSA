@@ -1,0 +1,28 @@
+package org.example;
+
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        int[] arr = {1, 2, 34, 9, 23, 3, 7, 32, 12};
+        int temp = 0;
+        Arrays.stream(arr).forEach(e->System.out.print(" "+e));
+        System.out.println();
+        for (int i = 0; i < arr.length; i++) { 
+            //0
+            for (int j = 0; j < arr.length - i - 1; j++) { //j<9-0-1
+             /*length-1 and length-i-1 gives the same result but it will
+             effect the speed*/
+                
+                if (arr[j] > arr[j + 1]) {
+                    temp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = temp;
+                }
+            }
+        }
+        Arrays.stream(arr).forEach(e->System.out.print(" "+e));
+
+    }
+
+}
